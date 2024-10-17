@@ -1,9 +1,9 @@
-#include <WiFiClient.h>
+#include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "Your_WiFi_SSID";
-const char* password = "Your_WiFi_Password";
-const char* serverURL = "https://your-render-service-url.com/data";
+const char* ssid = "loke J"; // Your Wi-Fi network name
+const char* password = "loke1107"; // Your Wi-Fi password
+const char* serverURL = "https://wifix.onrender.com/api/data"; // Your Render service API endpoint
 
 void setup() {
   Serial.begin(115200);
@@ -16,7 +16,7 @@ void setup() {
   Serial.println("Connected to WiFi!");
 
   // Example of sending data to your server
-  sendData("Hello from ESP32!");
+  sendData("Hello from ESP32!"); // Send a test message
 }
 
 void loop() {
@@ -26,7 +26,7 @@ void loop() {
 void sendData(String message) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    http.begin(serverURL);
+    http.begin(serverURL); // Ensure this is the correct endpoint
     http.addHeader("Content-Type", "application/json");
 
     String jsonPayload = "{\"message\":\"" + message + "\"}";
