@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Endpoint for receiving data from ESP32
-app.post('/data', (req, res) => {
+app.post('/api/data', (req, res) => {
   const { message } = req.body;
   console.log('Received message from ESP32:', message);
   res.json({ status: 'success', received: message });
